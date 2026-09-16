@@ -9,8 +9,5 @@ email + password, passkeys and Health-ID sign-in with mandatory biometrics and t
 account transfer from a previous identity provider; and a "phone key" journey that needs no password
 at all. Android KeyStore attestation and Play Integrity on Android, App Attest on iOS.
 
-The example is exported from azuma's monorepo; its `docs/spec/conformance-checklist.md` records the
-honest state against the guideline, open items included.
-
 ## ...
 More coming soon.
