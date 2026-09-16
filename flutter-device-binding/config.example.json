@@ -1,0 +1,29 @@
+{
+  "_comment": "Copy to config.json (git-ignored) and run: flutter run --dart-define-from-file=config.json. Every key is a compile-time constant; change one and rebuild. The code has no defaults: the values here are azuma's demo tenant, and a build without DOA_BASE_URL and DOA_APPLICATION_ID opens on a 'not configured' screen. The Health-ID flow stays disabled until every Health-ID key is filled. The Health-ID values point at the Mimoto reference environment; the client id is public, the relying-party id and redirect URI come from that client registration.",
+
+  "DOA_BASE_URL": "https://pie.azuma-health.tech/api/organization",
+  "DOA_APPLICATION_ID": "9647d187-0494-4874-9c9c-e403afb1b819",
+
+  "PLAY_INTEGRITY_CLOUD_PROJECT_NUMBER": "350905203458",
+
+  "HEALTH_ID_AUTHORIZATION_URL": "https://mimoto-ref.pie.azuma-health.tech/connect/auth",
+  "HEALTH_ID_TOKEN_URL": "https://mimoto-ref.pie.azuma-health.tech/connect/token",
+  "HEALTH_ID_EXCHANGE_URL": "https://mimoto-ref.pie.azuma-health.tech/oidcf/exchange/mobile",
+  "HEALTH_ID_IDP_LIST_URL": "https://mimoto-ref.pie.azuma-health.tech/api/v1/idps",
+  "HEALTH_ID_CLIENT_ID": "d0fe4fb5-ab2a-4ff4-bba4-91853071c3ce",
+  "HEALTH_ID_RELYING_PARTY_ID": "c36eb4fa-0f55-46f2-8e69-e52ff6013022",
+  "HEALTH_ID_REDIRECT_URI": "https://mimoto-example-app.azuma-health.tech/rn-ce/code/ce",
+  "HEALTH_ID_AUTHENTICATOR_SCHEME": "https",
+  "HEALTH_ID_EXCHANGE_VIA_REDIRECT": true,
+
+  "_transfer": "Variant A, account transfer from a previous identity provider. Empty here, so the flow stays disabled and says so. DOA validates google and apple tokens only, so TRANSFER_DOA_PROVIDER names the route that accepts this provider's id token, and its client id must be in that tenant's ValidAudiences. The redirect must be claimed by the app: Android through the App Link filter built from transferCallbackHost/Path in android/gradle.properties, iOS through the associated domain and its apple-app-site-association.",
+  "TRANSFER_PROVIDER_NAME": "",
+  "TRANSFER_AUTHORIZATION_URL": "",
+  "TRANSFER_TOKEN_URL": "",
+  "TRANSFER_CLIENT_ID": "",
+  "TRANSFER_REDIRECT_URI": "https://doa-example-app.azuma-health.tech/callback/transfer",
+  "TRANSFER_SCOPE": "openid email",
+  "TRANSFER_DOA_PROVIDER": "google",
+  "_transfer_demo": "true shows the transfer screens without any provider: an in-app sheet stands in for the sign-in and accepts anything, and the journey ends before DOA with a notice, because DOA would refuse a token minted here. Debuggable builds only; a release build ignores it entirely.",
+  "TRANSFER_DEMO": false
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- App Attest issues the device key and its attestation. "development"
+	     points at Apple's sandbox, which is what a debug or TestFlight build
+	     needs; an App Store build must say "production" or attestation fails. -->
+	<key>com.apple.developer.devicecheck.appattest-environment</key>
+	<string>development</string>
+	<!-- webcredentials: passkeys for this relying party. applinks: the Health-ID
+	     callback returns to the app instead of Safari. Both are checked against
+	     the domain's apple-app-site-association, see examples/.domain. -->
+	<key>com.apple.developer.associated-domains</key>
+	<array>
+		<string>webcredentials:doa-example-app.azuma-health.tech</string>
+		<string>applinks:doa-example-app.azuma-health.tech</string>
+		<string>webcredentials:mimoto-example-app.azuma-health.tech</string>
+		<string>applinks:mimoto-example-app.azuma-health.tech</string>
+	</array>
+</dict>
+</plist>

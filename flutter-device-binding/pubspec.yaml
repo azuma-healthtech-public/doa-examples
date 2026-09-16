@@ -1,0 +1,65 @@
+name: flutter_device_binding
+description: "Azuma Flutter device binding example - a 1:1 port of examples/android-device-binding."
+# Reference sample, never published.
+publish_to: 'none'
+version: 1.1.0+1
+
+environment:
+  sdk: ^3.13.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Generated dio client for the Device Binding API. Regenerated from swagger.json —
+  # see README.md, "Regenerating the API client". Never hand-edited.
+  doa_device_binding_api:
+    path: generated/doa_device_binding_api
+
+  dio: ^5.11.0
+  # DI for the one controller and the runtime config.
+  flutter_riverpod: ^3.4.2
+  # Nothing else. Storage is the app's own native store (SecureStoreChannel.kt,
+  # RSA-4096-wrapped AES-256-GCM); every other security-relevant call is a thin
+  # platform channel under lib/src/core/ - see docs/architecture.md for why no
+  # pub.dev package replaces them. No JWT package: reading `sub`/`exp` is
+  # base64url + JSON in customer_session.dart.
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icon/icon.png
+  # Figtree, azuma's corporate face, bundled so no font is fetched at runtime.
+  # Converted from the homepage's woff2 files; licence in assets/fonts/OFL.txt.
+  fonts:
+    - family: Figtree
+      fonts:
+        - asset: assets/fonts/Figtree-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Figtree-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Figtree-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Figtree-Bold.ttf
+          weight: 700
+
+# Launcher icon, generated from the azuma mark. Regenerate after changing the
+# sources in assets/icon/ with:
+#   dart run flutter_launcher_icons
+#
+# Sources are rasterised from azuma-homepage's `logo_icon_only.svg`; the
+# adaptive foreground is scaled down because only the inner 66% of that layer is
+# guaranteed visible once a launcher applies its mask.
+flutter_launcher_icons:
+  android: "ic_launcher"
+  ios: false
+  image_path: "assets/icon/icon.png"
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/icon/icon_foreground.png"
+  min_sdk_android: 28

@@ -1,0 +1,4388 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "azuma doa Device Binding API v1",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://pie.azuma-health.tech/api/organization"
+    }
+  ],
+  "paths": {
+    "/deviceBinding/account/v1/mobile/{applicationId}/register/email": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Account"
+        ],
+        "summary": "Register a new email account.",
+        "operationId": "DeviceBindingAccountRegisterAccountEmail",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Register account request data.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBindingRegisterEmailAccountRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceBindingRegisterEmailAccountResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/account/v1/mobile/{applicationId}/register/username": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Account"
+        ],
+        "summary": "Register a new username account.",
+        "operationId": "DeviceBindingAccountRegisterAccountUsername",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Register account request data.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBindingRegisterUsernameAccountRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceBindingRegisterUsernameAccountResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/account/v1/mobile/{applicationId}/verify/email/initiate": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Account"
+        ],
+        "summary": "Initiates email verification for an existing account.",
+        "operationId": "DeviceBindingAccountInitiateVerificationAccountEmail",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-InitiateEmailVerificationRequest\">InitiateEmailVerificationRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InitiateEmailVerificationResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/account/v1/mobile/{applicationId}/verify/email/confirm": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Account"
+        ],
+        "summary": "Confirms the verification of an email of an existing account.",
+        "operationId": "DeviceBindingAccountConfirmVerificationAccountEmail",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-ConfirmAccountEmailRequest\">ConfirmAccountEmailRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/account/v1/mobile/{applicationId}/recover/email/initiate": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Account"
+        ],
+        "summary": "Initiates password recovery for an email account.",
+        "operationId": "DeviceBindingAccountInitiateRecoveryAccountEmail",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-InitiateEmailRecoveryRequest\">InitiateEmailRecoveryRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InitiateEmailRecoveryResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/account/v1/mobile/{applicationId}/recover/email/confirm": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Account"
+        ],
+        "summary": "Confirms password recovery for an email account.",
+        "operationId": "DeviceBindingAccountConfirmRecoveryAccountEmail",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-ConfirmRecoveryEmailRequest\">ConfirmRecoveryEmailRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConfirmEmailRecoveryResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/account/v1/mobile/{applicationId}/recover/changePassword": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Account"
+        ],
+        "summary": "Change password via recovery.",
+        "operationId": "DeviceBindingAccountChangePasswordViaRecovery",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-ChangePasswordRequest\">ChangePasswordRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/account/v1/mobile/{applicationId}/changePassword": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Account"
+        ],
+        "summary": "Change password.",
+        "operationId": "DeviceBindingAccountChangePassword",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-ChangePasswordLoggedInUserRequest\">ChangePasswordLoggedInUserRequest</a>).\n\nImportant: \n<ul><li>In case the login was done > 5 Minutes ago, a new login is required.</li><li>In case the last login was done via a refresh, a new login is required.</li></ul>",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/account/v1/mobile/{applicationId}/userInfo": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Account"
+        ],
+        "summary": "Get user data",
+        "operationId": "DeviceBindingAccountGetUserInfo",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-UserInfoRequest\">UserInfoRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserInfoResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/account/v1/mobile/{applicationId}/link/biometrics": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Account (Biometrics)"
+        ],
+        "summary": "Link biometrics to account.",
+        "operationId": "DeviceBindingAccountLinkAccountBiometrics",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-DeviceBindingBiometricsLinkRequest\">DeviceBindingBiometricsLinkRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceBindingPasskeysLinkOptionsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/account/v1/mobile/{applicationId}/unlink/biometrics": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Account (Biometrics)"
+        ],
+        "summary": "Unlink biometrics.",
+        "operationId": "DeviceBindingAccountUnlinkAccountBiometrics",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-DeviceBindingBiometricsUnlinkRequest\">DeviceBindingBiometricsUnlinkRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/account/v1/mobile/{applicationId}/register/healthId": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Account (Health-ID)"
+        ],
+        "summary": "Register a new health id account.",
+        "operationId": "DeviceBindingAccountRegisterAccountHealthId",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Register account request data.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBindingRegisterHealthIdAccountRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceBindingRegisterHealthIdAccountResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/account/v1/mobile/{applicationId}/link/healthId": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Account (Health-ID)"
+        ],
+        "summary": "Link a health id account to the current account.",
+        "operationId": "DeviceBindingAccountLinkHealthId",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-DeviceBindingLinkHealthIdAccountRequest\">DeviceBindingLinkHealthIdAccountRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/account/v1/mobile/{applicationId}/unlink/healthId": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Account (Health-ID)"
+        ],
+        "summary": "Unlink a health id account to the current account.",
+        "operationId": "DeviceBindingAccountUnlinkHealthId",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-DeviceBindingUnLinkHealthIdAccountRequest\">DeviceBindingUnLinkHealthIdAccountRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/account/v1/mobile/{applicationId}/register/google": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Account (OIDC)"
+        ],
+        "summary": "Register a new google account via token exchange.",
+        "operationId": "DeviceBindingAccountRegisterAccountGoogle",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Register account request data.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBindingRegisterOidcAccountRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceBindingRegisterOidcAccountResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/account/v1/mobile/{applicationId}/register/apple": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Account (OIDC)"
+        ],
+        "summary": "Register a new apple account via token exchange.",
+        "operationId": "DeviceBindingAccountRegisterAccountApple",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Register account request data.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBindingRegisterOidcAccountRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceBindingRegisterOidcAccountResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/account/v1/mobile/{applicationId}/register/passkeys/generate-options": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Account (Passkeys)"
+        ],
+        "summary": "Register account via passkey - Generate options.",
+        "operationId": "DeviceBindingAccountRegisterAccountPasskeysGenOptions",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBindingPasskeysRegistrationOptionsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceBindingPasskeysRegistrationOptionsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/account/v1/mobile/{applicationId}/register/passkeys/verify": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Account (Passkeys)"
+        ],
+        "summary": "Register account via passkey - Verify.",
+        "operationId": "DeviceBindingAccountRegisterAccountPasskeysVerify",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBindingPasskeysRegistrationVerifyRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceBindingPasskeysRegistrationVerifyResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/account/v1/mobile/{applicationId}/link/passkeys/generate-options": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Account (Passkeys)"
+        ],
+        "summary": "Link passkey to account - Generate options.",
+        "operationId": "DeviceBindingAccountLinkAccountPasskeysGenOptions",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-DeviceBindingPasskeysLinkOptionsRequest\">DeviceBindingPasskeysLinkOptionsRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceBindingPasskeysLinkOptionsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/account/v1/mobile/{applicationId}/link/passkeys/verify": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Account (Passkeys)"
+        ],
+        "summary": "Link passkey to account - Verify.",
+        "operationId": "DeviceBindingAccountLinkAccountPasskeysVerify",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-DeviceBindingPasskeysLinkVerifyRequest\">DeviceBindingPasskeysLinkVerifyRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/account/v1/mobile/{applicationId}/unlink/passkeys": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Account (Passkeys)"
+        ],
+        "summary": "Unlink a passkey.",
+        "operationId": "DeviceBindingAccountUnlinkAccountPasskey",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-DeviceBindingPasskeysUnlinkRequest\">DeviceBindingPasskeysUnlinkRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/account/v1/mobile/{applicationId}/authEvents": {
+      "post": {
+        "tags": [
+          "DeviceBinding: AuditLog"
+        ],
+        "summary": "Get audit log for all auth events (paginated).",
+        "operationId": "DeviceBindingAuditLogsGetAuthEvents",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-DeviceBindingAuditLogAuthEventsRequest\">DeviceBindingAuditLogAuthEventsRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceBindingAuditLogAuthEventsPageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/auth/v1/mobile/{applicationId}/login/email": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Auth"
+        ],
+        "summary": "Login email account.",
+        "operationId": "DeviceBindingAuthLoginEmail",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-LoginEmailAccountRequest\">LoginEmailAccountRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/auth/v1/mobile/{applicationId}/login/username": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Auth"
+        ],
+        "summary": "Login username account.",
+        "operationId": "DeviceBindingAuthLoginUsername",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-LoginEmailAccountRequest\">LoginEmailAccountRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/auth/v1/mobile/{applicationId}/login/id": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Auth"
+        ],
+        "summary": "Login account with ID.",
+        "operationId": "DeviceBindingAuthLoginId",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-LoginIdAccountRequest\">LoginIdAccountRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/auth/v1/mobile/{applicationId}/login": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Auth"
+        ],
+        "summary": "Login account.",
+        "operationId": "DeviceBindingAuthLogin",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-LoginAccountRequest\">LoginAccountRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/auth/v1/mobile/{applicationId}/logout": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Auth"
+        ],
+        "summary": "Logout.",
+        "operationId": "DeviceBindingAuthLogout",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-LogoutUserRequest\">LogoutUserRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/auth/v1/mobile/{applicationId}/global-logout": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Auth"
+        ],
+        "summary": "Global logout with optional device bindings removal.",
+        "operationId": "DeviceBindingAuthGlobalLogout",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-LogoutUserRequest\">GlobalLogoutUserRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/auth/v1/mobile/{applicationId}/refresh": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Auth"
+        ],
+        "summary": "Refresh token.",
+        "operationId": "DeviceBindingAuthRefreshToken",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-RefreshTokenRequest\">RefreshTokenRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RefreshTokenResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/auth/v1/mobile/{applicationId}/login/biometrics": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Auth (Biometrics)"
+        ],
+        "summary": "Login account via biometrics.",
+        "operationId": "DeviceBindingAuthLoginBiometrics",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-DeviceBindingBiometricsLoginRequest\">DeviceBindingBiometricsLoginRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/auth/v1/mobile/{applicationId}/login/healthId": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Auth (Health-ID)"
+        ],
+        "summary": "Login health-ID account.",
+        "operationId": "DeviceBindingAuthLoginHealthId",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-LoginHealthIdAccountRequest\">LoginHealthIdAccountRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/auth/v1/mobile/{applicationId}/login/google": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Auth (OIDC)"
+        ],
+        "summary": "Login google account via token exchange.",
+        "operationId": "DeviceBindingAuthLoginGoogle",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-LoginOidcAccountRequest\">LoginOidcAccountRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/auth/v1/mobile/{applicationId}/login/apple": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Auth (OIDC)"
+        ],
+        "summary": "Login apple account via token exchange.",
+        "operationId": "DeviceBindingAuthLoginApple",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-LoginOidcAccountRequest\">LoginOidcAccountRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/auth/v1/mobile/{applicationId}/login/passkeys/generate-options": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Auth (Passkeys)"
+        ],
+        "summary": "Login account via passkey - Generate options.",
+        "operationId": "DeviceBindingAuthLoginPasskeyGenOptions",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-DeviceBindingPasskeysLoginOptionsRequest\">DeviceBindingPasskeysLoginOptionsRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceBindingPasskeysLoginOptionsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/auth/v1/mobile/{applicationId}/login/passkeys/verify": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Auth (Passkeys)"
+        ],
+        "summary": "Login account via passkey - Verify.",
+        "operationId": "DeviceBindingAuthLoginPasskeyVerify",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-DeviceBindingPasskeysLoginVerifyRequest\">DeviceBindingPasskeysLoginVerifyRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/challenge/v1/mobile/{applicationId}/registration": {
+      "get": {
+        "tags": [
+          "DeviceBinding: Challenge"
+        ],
+        "summary": "Generate a challenge for device binding registration.",
+        "operationId": "DeviceBindingChallengeGenerateRegistration",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChallengeResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/challenge/v1/mobile/{applicationId}/login": {
+      "get": {
+        "tags": [
+          "DeviceBinding: Challenge"
+        ],
+        "summary": "Generate a challenge for device binding login.",
+        "operationId": "DeviceBindingChallengeGenerateLogin",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChallengeResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/challenge/v1/mobile/{applicationId}/refresh": {
+      "get": {
+        "tags": [
+          "DeviceBinding: Challenge"
+        ],
+        "summary": "Generate a challenge for device binding refresh.",
+        "operationId": "DeviceBindingChallengeGenerateRefresh",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChallengeResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/challenge/v1/mobile/{applicationId}/additionalDevice": {
+      "get": {
+        "tags": [
+          "DeviceBinding: Challenge"
+        ],
+        "summary": "Generate a challenge for device binding additional device.",
+        "operationId": "DeviceBindingChallengeGenerateBindingAdditionalDevice",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChallengeResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/challenge/v1/mobile/{applicationId}/bindingRefresh": {
+      "get": {
+        "tags": [
+          "DeviceBinding: Challenge"
+        ],
+        "summary": "Generate a challenge for device binding refresh.",
+        "operationId": "DeviceBindingChallengeGenerateBindingRefresh",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChallengeResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/challenge/v1/mobile/{applicationId}/linking": {
+      "get": {
+        "tags": [
+          "DeviceBinding: Challenge"
+        ],
+        "summary": "Generate a challenge for linking.",
+        "operationId": "DeviceBindingChallengeGenerateLinking",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChallengeResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/device/v1/mobile/{applicationId}/register/email": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Device"
+        ],
+        "summary": "Register additional device for email account.",
+        "operationId": "DeviceBindingDeviceRegisterAdditionalViaEmail",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBindingRegisterAdditionalDeviceEmailRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/device/v1/mobile/{applicationId}/register/username": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Device"
+        ],
+        "summary": "Register  additional device for username account.",
+        "operationId": "DeviceBindingDeviceRegisterAdditionalViaUsername",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBindingRegisterAdditionalDeviceUsernameRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/device/v1/mobile/{applicationId}/dak/primary/prepare": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Device"
+        ],
+        "summary": "Device attestation key: generate a new primary key, but dont activate yet.",
+        "operationId": "DeviceBindingDevicePreparePrimaryDakRotation",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-DakPrimaryPrepareRotationRequest\">DakPrimaryPrepareRotationRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DakPrimaryPrepareRotationResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/device/v1/mobile/{applicationId}/dak/primary/rotate": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Device"
+        ],
+        "summary": "Device attestation key: activate the new primary key.",
+        "operationId": "DeviceBindingDeviceRotatePrimaryDak",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-DakPrimaryRotateRequest\">DakPrimaryRotateRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/device/v1/mobile/{applicationId}/refresh": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Device"
+        ],
+        "summary": "Refresh device binding.",
+        "operationId": "DeviceBindingDeviceRefreshBinding",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-DeviceBindingRefreshRequest\">DeviceBindingRefreshRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/device/v1/mobile/{applicationId}/register/healthId": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Device (Health-ID)"
+        ],
+        "summary": "Register additional device via healthId.",
+        "operationId": "DeviceBindingDeviceRegisterAdditionalViaHealthId",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBindingRegisterAdditionalDeviceHealthIdRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/device/v1/mobile/{applicationId}/register/passkeys/generate-options": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Device (Passkeys)"
+        ],
+        "summary": "Register additional device via passkeys. Generate options API.",
+        "operationId": "DeviceBindingDeviceRegisterViaPasskeysGenOptions",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBindingRegisterDevicePasskeysOptionsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceBindingRegisterDevicePasskeysOptionsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/device/v1/mobile/{applicationId}/register/passkeys/verify": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Device (Passkeys)"
+        ],
+        "summary": "Register additional device via passkeys. Verify API.",
+        "operationId": "DeviceBindingDeviceRegisterViaPasskeysVerify",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBindingRegisterDevicePasskeysVerifyRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeviceBindingRegisterDevicePasskeysVerifyResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/session/v1/mobile/{applicationId}/revoke": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Session"
+        ],
+        "summary": "Revoke the given token.",
+        "operationId": "DeviceBindingSessionRevokeToken",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-RevokeTokenRequest\">RevokeTokenRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deviceBinding/session/v1/mobile/{applicationId}/introspect": {
+      "post": {
+        "tags": [
+          "DeviceBinding: Session"
+        ],
+        "summary": "Introspect the given token.",
+        "operationId": "DeviceBindingSessionIntrospectToken",
+        "parameters": [
+          {
+            "name": "applicationId",
+            "in": "path",
+            "description": "ID of the application.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Request payload. (Payload: <a href=\"#model-IntrospectTokenRequest\">IntrospectTokenRequest</a>).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceBoundRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IntrospectTokenResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AuditLogStatus": {
+        "enum": [
+          "Unknown",
+          "Error",
+          "Success"
+        ],
+        "type": "string"
+      },
+      "AuditLogType": {
+        "enum": [
+          "Unknown",
+          "AccountChangePassword",
+          "AccountConfirmEmailVerification",
+          "AccountInitiateEmailVerification",
+          "AccountRecoveryInitiateViaEmail",
+          "AccountRecoveryConfirmEmailCode",
+          "AccountRecoveryChangePassword",
+          "AccountRegisterEmail",
+          "AccountRegisterHealthId",
+          "AccountRegisterUsername",
+          "AccountLinkHealthId",
+          "AccountUnlinkHealthId",
+          "AccountLinkBiometrics",
+          "AccountUnlinkBiometrics",
+          "AccountLinkPasskeysOptions",
+          "AccountLinkPasskeysVerify",
+          "AccountUnlinkPasskeys",
+          "AccountRegisterPasskeysOptions",
+          "AccountRegisterPasskeysVerify",
+          "AccountRegisterGoogle",
+          "AccountRegisterApple",
+          "AuditLogReadAuthEvents",
+          "AuthLoginUsername",
+          "AuthLoginEmail",
+          "AuthLoginId",
+          "AuthLoginHealthId",
+          "AuthLoginHinRequest",
+          "AuthLoginHinConsume",
+          "AuthLoginBiometrics",
+          "AuthLoginPasskeyOptions",
+          "AuthLoginPasskeyVerify",
+          "AuthLogin",
+          "AuthLoginGoogle",
+          "AuthLoginApple",
+          "AuthLogout",
+          "AuthGlobalLogout",
+          "AuthRefresh",
+          "AdminAccountRegisterEmail",
+          "AdminAccountReadUser",
+          "AdminAccountVerifyEmail",
+          "AdminAccountDisableUser",
+          "AdminAccountEnableUser",
+          "AdminAccountPasswordChangeRequired",
+          "AdminAccountDeleteUser",
+          "AdminAccountLogoutUser",
+          "AdminAccountSetUserRoles",
+          "AdminAccountSetUserLicenses",
+          "AdminLicenseCreate",
+          "AdminLicenseRead",
+          "AdminSessionRevokeToken",
+          "AdminSessionIntrospectToken",
+          "AdminTenantAppleDeviceAttestationRead",
+          "AdminTenantAppleDeviceAttestationUpdate",
+          "AdminTenantGoogleDeviceAttestationRead",
+          "AdminTenantGoogleDeviceAttestationUpdate",
+          "AdminTenantGoogleDeviceAttestationSaUpdate",
+          "AdminTenantPasswordRequirementsRead",
+          "AdminTenantPasswordRequirementsUpdate",
+          "AdminTenantMailingOptionsUpdate",
+          "AdminTenantPasskeyOptionsUpdate",
+          "AdminTenantPasswordRequirementsReset",
+          "AdminTenantMimotoConfigurationRead",
+          "AdminTenantMimotoConfigurationUpdate",
+          "AdminTenantTokenDataRead",
+          "AdminTenantTokenDataUpdate",
+          "AdminTenantTenantAccessDataUpdate",
+          "AdminTenantExclusiveFeaturesUpdate",
+          "AdminTenantFlowsRead",
+          "AdminTenantFlowsUpdate",
+          "AdminTenantIntegrationsUpdate",
+          "AdminTenantAuthFlowUpdate",
+          "AdminTenantPasswordChangeFlowUpdate",
+          "AdminTenantRecoveryFlowUpdate",
+          "AdminTenantVerificationFlowUpdate",
+          "ChallengeAdditionalDevice",
+          "ChallengeRefresh",
+          "ChallengeLogin",
+          "ChallengeRegistration",
+          "ChallengeLinking",
+          "DeviceRegisterAdditionalDeviceViaEmail",
+          "DeviceRegisterAdditionalDeviceViaUsername",
+          "DeviceRegisterAdditionalDeviceViaHealthId",
+          "DevicePrepareDeviceAttestationKey",
+          "DeviceRotateDeviceAttestationKey",
+          "DeviceRefreshBinding",
+          "EfUnknown",
+          "EfDelete",
+          "EfInsert",
+          "EfRead",
+          "EfUpdate",
+          "SessionRevokeToken",
+          "SessionIntrospectToken",
+          "DeviceRegisterAdditionalDeviceViPasskeysOptions",
+          "DeviceRegisterAdditionalDeviceViPasskeysVerify",
+          "AdminTenantOidcConfigurationUpdate",
+          "AdminTenantWebOptionsDataUpdate",
+          "AdminTenantWebOptionsUrlsUpdate",
+          "AdminTenantWebOptionsLayoutUpdate",
+          "AdminTenantHinConfigurationUpdate"
+        ],
+        "type": "string"
+      },
+      "BusinessErrorCodes": {
+        "enum": [
+          "Unknown",
+          "ApplicationUnknown",
+          "AuthUnauthorized",
+          "AuthWrongSignature",
+          "AuthLogoutFailed",
+          "AuthGlobalLogoutFailed",
+          "AuthRefreshFailed",
+          "AuthAccessTokenInvalid",
+          "AuthLoginUsernameDisabled",
+          "AuthLoginUsernameWithDakDisabled",
+          "AuthLoginIntegrityDataMissing",
+          "AuthLoginEmailDisabled",
+          "AuthLoginIdDisabled",
+          "AuthLoginHinDisabled",
+          "AuthLoginHinProviderMissing",
+          "AuthLoginHinProviderNotHin",
+          "AuthLoginHinDataInvalid",
+          "AuthLoginHinClaimMissing",
+          "AuthLoginEmailWithDakDisabled",
+          "AuthLoginHealthIdDisabled",
+          "AuthLoginPasskeysDisabled",
+          "AuthLoginBiometricsDisabled",
+          "AuthLoginBiometricsWrongSignature",
+          "AuthLoginGoogleTeDisabled",
+          "AuthLoginAppleTeDisabled",
+          "ChangePasswordLoginRequired",
+          "ChangePasswordFailed",
+          "ChangePasswordDisabled",
+          "DeviceAttestationKeyUnknown",
+          "DeviceBindingUnknownMobileOs",
+          "DeviceBindingInvalidIntegrity",
+          "DeviceBindingInvalidAttestation",
+          "DeviceBindingInvalidAssertion",
+          "DeviceBindingPayloadInvalid",
+          "DeviceBindingRefreshDisabled",
+          "EmailUnknown",
+          "EmailAlreadyVerified",
+          "EmailConfirmationFailed",
+          "EmailFormatInvalid",
+          "EmailNotVerified",
+          "EmailVerificationDisabled",
+          "Forbidden",
+          "NotFound",
+          "OidcUnknown",
+          "LicenseKeyMissing",
+          "LicenseKeyNotStartingWithAppShortKey",
+          "LicenseKeyMinLength",
+          "LicenseKeyReserved",
+          "LicenseKeyOnlyLetters",
+          "LicensePersonalButNoUser",
+          "LicenseTenantButNoTenant",
+          "LicenseUnknown",
+          "LinkHealthIdAlreadyLinked",
+          "LinkHealthIdSubAlreadyLinked",
+          "LinkHealthIdNotLinked",
+          "LinkHinAlreadyLinked",
+          "LinkHinSubAlreadyLinked",
+          "LinkHinNotLinked",
+          "LinkHinIdUnlinkNotPossible",
+          "LinkHealthIdUnlinkNotPossible",
+          "LinkBiometricsInvalidPublicKey",
+          "LinkBiometricsInvalidSignature",
+          "LinkPasskeyVerificationFailed",
+          "PaginationPageSizeNotAllowed",
+          "PasskeyCredentialUnknown",
+          "PasskeyUnlinkNotPossible",
+          "PermissionKeyMissing",
+          "PermissionKeyNotStartingWithAppShortKey",
+          "PermissionKeyMinLength",
+          "PermissionKeyReserved",
+          "PermissionKeyOnlyLetters",
+          "PermissionAlreadyExists",
+          "RecoveryDisabled",
+          "RecoveryConfirmationFailed",
+          "RegistrationNotPossible",
+          "RegistrationPasswordValidationFailed",
+          "RegistrationHealthIdFailed",
+          "RegistrationUsernameDisabled",
+          "RegistrationEmailDisabled",
+          "RegistrationHealthIdDisabled",
+          "RegistrationPasskeysDisabled",
+          "RegistrationPasskeyVerificationFailed",
+          "RegistrationGoogleTeDisabled",
+          "RegistrationAppleTeDisabled",
+          "RegistrationOidcFailed",
+          "RoleAddPermissionApplicationMismatch",
+          "RoleRemovePermissionApplicationMismatch",
+          "RoleKeyMissing",
+          "RoleKeyNotStartingWithAppShortKey",
+          "RoleKeyMinLength",
+          "RoleKeyReserved",
+          "RoleKeyOnlyLetters",
+          "RoleUnknown",
+          "RoleAlreadyExists",
+          "ScopeNotAllowed",
+          "SessionIntrospectionFailed",
+          "SessionRevokeTokenFailed",
+          "UserEnableFailed",
+          "UserDisableFailed",
+          "UserDeleteFailed",
+          "UserReadFailed",
+          "UserUnknown",
+          "SpecValidationError"
+        ],
+        "type": "string",
+        "description": "<p>Members:</p><ul><li><i>Unknown</i> - Unknown error occurred.</li> <li><i>ApplicationUnknown</i> - Application is unknown.</li> <li><i>AuthUnauthorized</i> - Auth not possible. This can happen during all Login and Health-ID Link flows.</li> <li><i>AuthWrongSignature</i> - Wrong signature provided in a device bound request. This most likely happens if a device is used that has not been added to user account yet.</li> <li><i>AuthLogoutFailed</i> - Logout failed. This can happen if unknown tokens are provided.</li> <li><i>AuthGlobalLogoutFailed</i> - Logout failed. This can happen if unknown tokens are provided.</li> <li><i>AuthRefreshFailed</i> - Token refresh failed. This can happen if refresh token has expired or is invalid.</li> <li><i>AuthAccessTokenInvalid</i> - The given access token is invalid (e.g. expired).</li> <li><i>AuthLoginUsernameDisabled</i> - Login with username is disabled.</li> <li><i>AuthLoginUsernameWithDakDisabled</i> - Login with username and DAK (instead of PW) is disabled.</li> <li><i>AuthLoginEmailDisabled</i> - Login with email is disabled.</li> <li><i>AuthLoginIdDisabled</i> - Login with ID is disabled.</li> <li><i>AuthLoginHinDisabled</i> - Login with HIN is disabled.</li> <li><i>AuthLoginEmailWithDakDisabled</i> - Login with email and DAK (instead of PW) is disabled.</li> <li><i>AuthLoginHealthIdDisabled</i> - Login with health-ID is disabled.</li> <li><i>ChangePasswordLoginRequired</i> - Login required for change password flow.</li> <li><i>ChangePasswordFailed</i> - Change password failed. This can happen id the old PW does not match (if old PW is required).</li> <li><i>ChangePasswordDisabled</i> - Change password flow is disabled.</li> <li><i>DeviceAttestationKeyUnknown</i> - The given DAK is unknown.</li> <li><i>DeviceBindingUnknownMobileOs</i> - The provide mobile OS is unknown.</li> <li><i>DeviceBindingInvalidIntegrity</i> - Integrity check failed.</li> <li><i>DeviceBindingInvalidAttestation</i> - Attestation check failed.</li> <li><i>DeviceBindingInvalidAssertion</i> - Assertion check failed.</li> <li><i>DeviceBindingPayloadInvalid</i> - Invalid payload (for device bound request).</li> <li><i>DeviceBindingRefreshDisabled</i> - Device binding refresh is disabled.</li> <li><i>EmailUnknown</i> - Provided email is unknown.</li> <li><i>EmailAlreadyVerified</i> - Provided email is already verified.</li> <li><i>EmailConfirmationFailed</i> - Email confirmation failed. This usually happens if the given code is wrong or expired.</li> <li><i>EmailFormatInvalid</i> - Email format is invalid.</li> <li><i>EmailNotVerified</i> - Email is not verified. (Login not possible).</li> <li><i>EmailVerificationDisabled</i> - Email verification flow is disabled.</li> <li><i>Forbidden</i> - Access is forbidden.</li> <li><i>LinkHealthIdAlreadyLinked</i> - Account already linked to health-id.</li> <li><i>LinkHealthIdSubAlreadyLinked</i> - Health-ID account already linked. This can happen if user tries to link same Health-ID account to multiple doa accounts.</li> <li><i>LinkHealthIdNotLinked</i> - Health-ID is not linked. Nothing to unlink.</li> <li><i>LinkHealthIdUnlinkNotPossible</i> - Health-ID can not unlink (e.g. happens if Health-ID is the main login identifier).</li> <li><i>PasskeyUnlinkNotPossible</i> - Passkey can not unlink (e.g. happens if Passkey is the main login identifier).</li> <li><i>RecoveryDisabled</i> - Recovery flow is disabled.</li> <li><i>RecoveryConfirmationFailed</i> - Recovery code confirmation failed.</li> <li><i>RegistrationNotPossible</i> - Account registration is not possible (e.g. account could already exist).</li> <li><i>RegistrationPasswordValidationFailed</i> - Password validation failed during registration. Check PW requirements. (See additional provided error data in ErrorDto->error_data).</li> <li><i>RegistrationHealthIdFailed</i> - Health-ID registration failed. This usually happens if the given token is invalid, expired or the audience does not match the configured (allowed) audiences.</li> <li><i>RegistrationUsernameDisabled</i> - Username registration is disabled.</li> <li><i>RegistrationEmailDisabled</i> - Email registration is disabled.</li> <li><i>RegistrationHealthIdDisabled</i> - Health-ID registration is disabled.</li> <li><i>ScopeNotAllowed</i> - Requested scope is not allowed.</li> <li><i>SessionIntrospectionFailed</i> - Introspection command failed.</li> <li><i>SessionRevokeTokenFailed</i> - Revocation failed. This can happen for unknown or invalid tokens.</li> <li><i>UserEnableFailed</i> - Failed to enable user.</li> <li><i>UserDisableFailed</i> - Failed to disable user.</li> <li><i>UserDeleteFailed</i> - Failed to delete user.</li> <li><i>UserReadFailed</i> - Failed to read user.</li> <li><i>UserUnknown</i> - User is unknown.</li> </ul>"
+      },
+      "ChallengeResponse": {
+        "required": [
+          "challenge"
+        ],
+        "type": "object",
+        "properties": {
+          "challenge": {
+            "minLength": 32,
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Challenge leased from the backend and to be used for formulating subsequent request."
+      },
+      "ChangePasswordLoggedInUserRequest": {
+        "type": "object",
+        "properties": {
+          "identifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "newPassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "oldPassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "accessToken": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChangePasswordRequest": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "passwordChangeToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "passwordChangeId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConfirmAccountEmailRequest": {
+        "required": [
+          "email",
+          "verificationCode",
+          "verificationFlow"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "Email to be marked as verified.",
+            "nullable": true
+          },
+          "verificationFlow": {
+            "type": "string",
+            "description": "Verification flow.",
+            "nullable": true
+          },
+          "verificationCode": {
+            "type": "string",
+            "description": "Verification code.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConfirmEmailRecoveryRequest": {
+        "required": [
+          "email",
+          "recoveryCode",
+          "recoveryFlow"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "Email of the account the recovery was initiated for.",
+            "nullable": true
+          },
+          "recoveryFlow": {
+            "type": "string",
+            "description": "Recovery flow.",
+            "nullable": true
+          },
+          "recoveryCode": {
+            "type": "string",
+            "description": "Recovery code.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConfirmEmailRecoveryResponse": {
+        "type": "object",
+        "properties": {
+          "passwordChangeToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "passwordChangeId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DakPrimaryPrepareRotationRequest": {
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DakPrimaryPrepareRotationResponse": {
+        "type": "object",
+        "properties": {
+          "deviceAttestationKey": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DakPrimaryRotateRequest": {
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "deviceAttestationKey": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceAttestationDto": {
+        "type": "object",
+        "properties": {
+          "deviceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "attestation": {
+            "type": "string",
+            "nullable": true
+          },
+          "deviceOs": {
+            "$ref": "#/components/schemas/UserDeviceOs"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingAuditLogAuthEventResponse": {
+        "type": "object",
+        "properties": {
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/AuditLogStatus"
+          },
+          "type": {
+            "$ref": "#/components/schemas/AuditLogType"
+          },
+          "executingUserDeviceData": {
+            "$ref": "#/components/schemas/UserDeviceData"
+          },
+          "errorCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "errorData": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingAuditLogAuthEventsPageResponse": {
+        "type": "object",
+        "properties": {
+          "hasMore": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DeviceBindingAuditLogAuthEventResponse"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingAuditLogAuthEventsRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "accessToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "Max value: 20",
+            "format": "int32"
+          },
+          "includedLogTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AuditLogType"
+            },
+            "description": "Included log types from DeviceBindingAuth, DeviceBindingAccount, DeviceBindingDevice and DeviceBindingSession categories. Can be left empty or null to include all events from those categories.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingBiometricsLinkRequest": {
+        "required": [
+          "accessToken",
+          "id",
+          "publicKey",
+          "requestChallenge",
+          "requestSignature"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Account ID.",
+            "nullable": true
+          },
+          "accessToken": {
+            "type": "string",
+            "description": "doa Access Token.",
+            "nullable": true
+          },
+          "publicKey": {
+            "type": "string",
+            "description": "Base64-encoded SubjectPublicKeyInfo (DER) of the device's biometric public key. Accepted algorithms:\n - RSA-2048 (RSASSA-PKCS1-v1_5 with SHA-256)\n - EC P-256 (ECDSA with SHA-256; signatures must be RFC 3279 DER SEQUENCE { r, s })",
+            "nullable": true
+          },
+          "deviceData": {
+            "$ref": "#/components/schemas/UserDeviceData"
+          },
+          "requestChallenge": {
+            "type": "string",
+            "description": "Request challenge as received via challenge API.",
+            "nullable": true
+          },
+          "requestSignature": {
+            "type": "string",
+            "description": "Base64-encoded signature of UTF-8(RequestChallenge). Algorithm must match the supplied PublicKey:\nRSASSA-PKCS1-v1_5(SHA-256) for RSA, or ECDSA(SHA-256, RFC 3279 DER) for EC P-256.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingBiometricsLoginRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "requestSignature": {
+            "type": "string",
+            "description": "Base64-encoded signature of UTF-8(RequestChallenge). Algorithm must match the linked PublicKey:\nRSASSA-PKCS1-v1_5(SHA-256) for RSA-2048, or ECDSA(SHA-256, RFC 3279 DER) for EC P-256.",
+            "nullable": true
+          },
+          "requestChallenge": {
+            "type": "string",
+            "description": "Challenge as received via challenge API.",
+            "nullable": true
+          },
+          "scope": {
+            "type": "string",
+            "description": "The following scopes are supported:\n- offline_access --> this is required to receive refresh token\n- permissions_app\n- licenses",
+            "nullable": true
+          },
+          "deviceData": {
+            "$ref": "#/components/schemas/UserDeviceData"
+          },
+          "deviceBoundIntegrityVerificationData": {
+            "$ref": "#/components/schemas/DeviceBoundIntegrityVerificationData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingBiometricsUnlinkRequest": {
+        "required": [
+          "accessToken",
+          "biometricsId",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Account ID.",
+            "nullable": true
+          },
+          "accessToken": {
+            "type": "string",
+            "description": "doa Access Token.",
+            "nullable": true
+          },
+          "biometricsId": {
+            "type": "string",
+            "description": "ID of the biometric credentials. All biometric credentials can be retrieved via /deviceBinding/account/v1/mobile/{applicationId}/userInfo.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingLinkHealthIdAccountRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Account ID.",
+            "nullable": true
+          },
+          "accessToken": {
+            "type": "string",
+            "description": "doa Access Token.",
+            "nullable": true
+          },
+          "healthIdIdentityToken": {
+            "type": "string",
+            "description": "Identity token from mimoto.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingPasskeysLinkOptionsRequest": {
+        "required": [
+          "accessToken",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Account ID.",
+            "nullable": true
+          },
+          "accessToken": {
+            "type": "string",
+            "description": "doa Access Token.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingPasskeysLinkOptionsResponse": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "nullable": true
+          },
+          "options": {
+            "type": "string",
+            "description": "Options for passkey registration.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingPasskeysLinkVerifyRequest": {
+        "required": [
+          "accessToken",
+          "id",
+          "passkeyAttestation"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Account ID.",
+            "nullable": true
+          },
+          "accessToken": {
+            "type": "string",
+            "description": "doa Access Token.",
+            "nullable": true
+          },
+          "passkeyAttestation": {
+            "type": "string",
+            "description": "Attestation to create new passkey.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingPasskeysLoginOptionsRequest": {
+        "required": [
+          "identifier"
+        ],
+        "type": "object",
+        "properties": {
+          "identifier": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingPasskeysLoginOptionsResponse": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "nullable": true
+          },
+          "options": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingPasskeysLoginVerifyRequest": {
+        "required": [
+          "assertion"
+        ],
+        "type": "object",
+        "properties": {
+          "requestChallenge": {
+            "type": "string",
+            "description": "Challenge as received via challenge API.",
+            "nullable": true
+          },
+          "scope": {
+            "type": "string",
+            "description": "The following scopes are supported:\n- offline_access --> this is required to receive refresh token\n- permissions_app\n- licenses",
+            "nullable": true
+          },
+          "deviceData": {
+            "$ref": "#/components/schemas/UserDeviceData"
+          },
+          "assertion": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "identifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "deviceBoundIntegrityVerificationData": {
+            "$ref": "#/components/schemas/DeviceBoundIntegrityVerificationData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingPasskeysRegistrationOptionsRequest": {
+        "required": [
+          "identifier"
+        ],
+        "type": "object",
+        "properties": {
+          "identifier": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingPasskeysRegistrationOptionsResponse": {
+        "type": "object",
+        "properties": {
+          "options": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingPasskeysRegistrationVerifyRequest": {
+        "required": [
+          "deviceAttestation",
+          "identifier",
+          "loginScope",
+          "passkeyAttestation",
+          "requestChallenge"
+        ],
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string",
+            "description": "Language (used for communication). Currently only 'de' or 'en' is supported. Default: 'de'.",
+            "nullable": true
+          },
+          "roleKey": {
+            "type": "string",
+            "description": "Key of the role to assign to the user.",
+            "nullable": true
+          },
+          "licenseKey": {
+            "type": "string",
+            "description": "Key of the license to assign to the user.",
+            "nullable": true
+          },
+          "passkeyAttestation": {
+            "type": "string",
+            "nullable": true
+          },
+          "identifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "deviceAttestation": {
+            "$ref": "#/components/schemas/DeviceAttestationDto"
+          },
+          "requestChallenge": {
+            "type": "string",
+            "description": "Request challenge as received via challenge API.",
+            "nullable": true
+          },
+          "iosHardwareKey": {
+            "type": "string",
+            "description": "IOS only: hardware key.",
+            "nullable": true
+          },
+          "androidIntegrityToken": {
+            "type": "string",
+            "description": "Android only: integrity token.",
+            "nullable": true
+          },
+          "deviceData": {
+            "$ref": "#/components/schemas/UserDeviceData"
+          },
+          "loginScope": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingPasskeysRegistrationVerifyResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "token": {
+            "$ref": "#/components/schemas/LoginResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingPasskeysUnlinkRequest": {
+        "required": [
+          "accessToken",
+          "id",
+          "passkeyId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Account ID.",
+            "nullable": true
+          },
+          "accessToken": {
+            "type": "string",
+            "description": "doa Access Token.",
+            "nullable": true
+          },
+          "passkeyId": {
+            "type": "string",
+            "description": "ID of the passkey credentials. All passkey credentials can be retrieved via /deviceBinding/account/v1/mobile/{applicationId}/userInfo.",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingRefreshRequest": {
+        "required": [
+          "deviceAttestation"
+        ],
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "deviceAttestationKey": {
+            "type": "string",
+            "description": "Device attestation key (if required via options).",
+            "nullable": true
+          },
+          "requestChallenge": {
+            "type": "string",
+            "description": "Challenge as received via challenge API.",
+            "nullable": true
+          },
+          "deviceData": {
+            "$ref": "#/components/schemas/UserDeviceData"
+          },
+          "deviceAttestation": {
+            "$ref": "#/components/schemas/DeviceAttestationDto"
+          },
+          "iosHardwareKey": {
+            "type": "string",
+            "description": "IOS only: hardware key.",
+            "nullable": true
+          },
+          "androidIntegrityToken": {
+            "type": "string",
+            "description": "Android only: integrity token.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingRegisterAdditionalDeviceEmailRequest": {
+        "required": [
+          "deviceAttestation",
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "scope": {
+            "type": "string",
+            "description": "The following scopes are supported:\n- offline_access --> this is required to receive refresh token\n- permissions_app\n- licenses",
+            "nullable": true
+          },
+          "requestChallenge": {
+            "type": "string",
+            "description": "Challenge as received via challenge API.",
+            "nullable": true
+          },
+          "deviceData": {
+            "$ref": "#/components/schemas/UserDeviceData"
+          },
+          "deviceAttestationKey": {
+            "type": "string",
+            "description": "Device AttestationKey of the created account. DAK can be used instead of Password if enabled",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "deviceBoundIntegrityVerificationData": {
+            "$ref": "#/components/schemas/DeviceBoundIntegrityVerificationData"
+          },
+          "deviceAttestation": {
+            "$ref": "#/components/schemas/DeviceAttestationDto"
+          },
+          "iosHardwareKey": {
+            "type": "string",
+            "description": "IOS only: hardware key.",
+            "nullable": true
+          },
+          "androidIntegrityToken": {
+            "type": "string",
+            "description": "Android only: integrity token.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingRegisterAdditionalDeviceHealthIdRequest": {
+        "required": [
+          "deviceAttestation",
+          "identityToken"
+        ],
+        "type": "object",
+        "properties": {
+          "identityToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "requestChallenge": {
+            "type": "string",
+            "description": "Challenge as received via challenge API.",
+            "nullable": true
+          },
+          "scope": {
+            "type": "string",
+            "description": "The following scopes are supported:\n- offline_access --> this is required to receive refresh token\n- permissions_app\n- licenses",
+            "nullable": true
+          },
+          "deviceData": {
+            "$ref": "#/components/schemas/UserDeviceData"
+          },
+          "deviceBoundIntegrityVerificationData": {
+            "$ref": "#/components/schemas/DeviceBoundIntegrityVerificationData"
+          },
+          "deviceAttestation": {
+            "$ref": "#/components/schemas/DeviceAttestationDto"
+          },
+          "iosHardwareKey": {
+            "type": "string",
+            "description": "IOS only: hardware key.",
+            "nullable": true
+          },
+          "androidIntegrityToken": {
+            "type": "string",
+            "description": "Android only: integrity token.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingRegisterAdditionalDeviceUsernameRequest": {
+        "required": [
+          "deviceAttestation",
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "scope": {
+            "type": "string",
+            "description": "The following scopes are supported:\n- offline_access --> this is required to receive refresh token\n- permissions_app\n- licenses",
+            "nullable": true
+          },
+          "requestChallenge": {
+            "type": "string",
+            "description": "Challenge as received via challenge API.",
+            "nullable": true
+          },
+          "deviceData": {
+            "$ref": "#/components/schemas/UserDeviceData"
+          },
+          "deviceAttestationKey": {
+            "type": "string",
+            "description": "Device AttestationKey of the created account. DAK can be used instead of Password if enabled",
+            "nullable": true
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "deviceBoundIntegrityVerificationData": {
+            "$ref": "#/components/schemas/DeviceBoundIntegrityVerificationData"
+          },
+          "deviceAttestation": {
+            "$ref": "#/components/schemas/DeviceAttestationDto"
+          },
+          "iosHardwareKey": {
+            "type": "string",
+            "description": "IOS only: hardware key.",
+            "nullable": true
+          },
+          "androidIntegrityToken": {
+            "type": "string",
+            "description": "Android only: integrity token.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingRegisterDevicePasskeysOptionsRequest": {
+        "type": "object",
+        "properties": {
+          "identifier": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingRegisterDevicePasskeysOptionsResponse": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "nullable": true
+          },
+          "options": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingRegisterDevicePasskeysVerifyRequest": {
+        "required": [
+          "assertion",
+          "deviceAttestation",
+          "requestChallenge"
+        ],
+        "type": "object",
+        "properties": {
+          "scope": {
+            "type": "string",
+            "description": "The following scopes are supported:\n- offline_access --> this is required to receive refresh token\n- permissions_app\n- licenses",
+            "nullable": true
+          },
+          "assertion": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "identifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "deviceBoundIntegrityVerificationData": {
+            "$ref": "#/components/schemas/DeviceBoundIntegrityVerificationData"
+          },
+          "requestChallenge": {
+            "type": "string",
+            "description": "Challenge as received via challenge API.",
+            "nullable": true
+          },
+          "deviceAttestation": {
+            "$ref": "#/components/schemas/DeviceAttestationDto"
+          },
+          "iosHardwareKey": {
+            "type": "string",
+            "description": "IOS only: hardware key.",
+            "nullable": true
+          },
+          "androidIntegrityToken": {
+            "type": "string",
+            "description": "Android only: integrity token.",
+            "nullable": true
+          },
+          "deviceData": {
+            "$ref": "#/components/schemas/UserDeviceData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingRegisterDevicePasskeysVerifyResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "token": {
+            "$ref": "#/components/schemas/LoginResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingRegisterEmailAccountRequest": {
+        "required": [
+          "deviceAttestation",
+          "email",
+          "initiateEmailVerification",
+          "password",
+          "requestChallenge"
+        ],
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string",
+            "description": "Language (used for communication). Currently only 'de' or 'en' is supported. Default: 'de'.",
+            "nullable": true
+          },
+          "roleKey": {
+            "type": "string",
+            "description": "Key of the role to assign to the user.",
+            "nullable": true
+          },
+          "licenseKey": {
+            "type": "string",
+            "description": "Key of the license to assign to the user.",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "description": "Password of the account. The following default password policy is in place:\n- At least 8 characters.\n- At least 1 number.\n- At least 1 special character.",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "description": "Email of the account.",
+            "nullable": true
+          },
+          "initiateEmailVerification": {
+            "type": "boolean",
+            "description": "True if email verification should be initiated. False otherwise."
+          },
+          "deviceAttestation": {
+            "$ref": "#/components/schemas/DeviceAttestationDto"
+          },
+          "requestChallenge": {
+            "type": "string",
+            "description": "Request challenge as received via challenge API.",
+            "nullable": true
+          },
+          "iosHardwareKey": {
+            "type": "string",
+            "description": "IOS only: hardware key.",
+            "nullable": true
+          },
+          "androidIntegrityToken": {
+            "type": "string",
+            "description": "Android only: integrity token.",
+            "nullable": true
+          },
+          "deviceData": {
+            "$ref": "#/components/schemas/UserDeviceData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingRegisterEmailAccountResponse": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Id of the created account.",
+            "nullable": true
+          },
+          "emailVerificationInitiated": {
+            "type": "boolean"
+          },
+          "verificationFlow": {
+            "type": "string",
+            "description": "Email verification flow (if a verification was started);",
+            "nullable": true
+          },
+          "deviceAttestationKey": {
+            "type": "string",
+            "description": "Device AttestationKey of the created account.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingRegisterHealthIdAccountRequest": {
+        "required": [
+          "deviceAttestation",
+          "requestChallenge"
+        ],
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string",
+            "description": "Language (used for communication). Currently only 'de' or 'en' is supported. Default: 'de'.",
+            "nullable": true
+          },
+          "roleKey": {
+            "type": "string",
+            "description": "Key of the role to assign to the user.",
+            "nullable": true
+          },
+          "licenseKey": {
+            "type": "string",
+            "description": "Key of the license to assign to the user.",
+            "nullable": true
+          },
+          "identityToken": {
+            "type": "string",
+            "description": "Identity token used for registration.",
+            "nullable": true
+          },
+          "deviceAttestation": {
+            "$ref": "#/components/schemas/DeviceAttestationDto"
+          },
+          "requestChallenge": {
+            "type": "string",
+            "description": "Request challenge as received via challenge API.",
+            "nullable": true
+          },
+          "iosHardwareKey": {
+            "type": "string",
+            "description": "IOS only: hardware key.",
+            "nullable": true
+          },
+          "androidIntegrityToken": {
+            "type": "string",
+            "description": "Android only: integrity token.",
+            "nullable": true
+          },
+          "deviceData": {
+            "$ref": "#/components/schemas/UserDeviceData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingRegisterHealthIdAccountResponse": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Id of the created account.",
+            "nullable": true
+          },
+          "deviceAttestationKey": {
+            "type": "string",
+            "description": "Device AttestationKey of the created account.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingRegisterOidcAccountRequest": {
+        "required": [
+          "deviceAttestation",
+          "requestChallenge"
+        ],
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string",
+            "description": "Language (used for communication). Currently only 'de' or 'en' is supported. Default: 'de'.",
+            "nullable": true
+          },
+          "roleKey": {
+            "type": "string",
+            "description": "Key of the role to assign to the user.",
+            "nullable": true
+          },
+          "licenseKey": {
+            "type": "string",
+            "description": "Key of the license to assign to the user.",
+            "nullable": true
+          },
+          "identityToken": {
+            "type": "string",
+            "description": "Identity token used for registration.",
+            "nullable": true
+          },
+          "deviceAttestation": {
+            "$ref": "#/components/schemas/DeviceAttestationDto"
+          },
+          "requestChallenge": {
+            "type": "string",
+            "description": "Request challenge as received via challenge API.",
+            "nullable": true
+          },
+          "iosHardwareKey": {
+            "type": "string",
+            "description": "IOS only: hardware key.",
+            "nullable": true
+          },
+          "androidIntegrityToken": {
+            "type": "string",
+            "description": "Android only: integrity token.",
+            "nullable": true
+          },
+          "deviceData": {
+            "$ref": "#/components/schemas/UserDeviceData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingRegisterOidcAccountResponse": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Id of the created account.",
+            "nullable": true
+          },
+          "deviceAttestationKey": {
+            "type": "string",
+            "description": "Device AttestationKey of the created account.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingRegisterUsernameAccountRequest": {
+        "required": [
+          "deviceAttestation",
+          "password",
+          "requestChallenge",
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string",
+            "description": "Language (used for communication). Currently only 'de' or 'en' is supported. Default: 'de'.",
+            "nullable": true
+          },
+          "roleKey": {
+            "type": "string",
+            "description": "Key of the role to assign to the user.",
+            "nullable": true
+          },
+          "licenseKey": {
+            "type": "string",
+            "description": "Key of the license to assign to the user.",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "description": "Password of the account. The following default password policy is in place:\n- At least 8 characters.\n- At least 1 number.\n- At least 1 special character.",
+            "nullable": true
+          },
+          "username": {
+            "type": "string",
+            "description": "Username of the account.",
+            "nullable": true
+          },
+          "deviceAttestation": {
+            "$ref": "#/components/schemas/DeviceAttestationDto"
+          },
+          "requestChallenge": {
+            "type": "string",
+            "description": "Request challenge as received via challenge API.",
+            "nullable": true
+          },
+          "iosHardwareKey": {
+            "type": "string",
+            "description": "IOS only: hardware key.",
+            "nullable": true
+          },
+          "androidIntegrityToken": {
+            "type": "string",
+            "description": "Android only: integrity token.",
+            "nullable": true
+          },
+          "deviceData": {
+            "$ref": "#/components/schemas/UserDeviceData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingRegisterUsernameAccountResponse": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Id of the created account.",
+            "nullable": true
+          },
+          "deviceAttestationKey": {
+            "type": "string",
+            "description": "Device AttestationKey of the created account.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBindingUnLinkHealthIdAccountRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Account ID.",
+            "nullable": true
+          },
+          "accessToken": {
+            "type": "string",
+            "description": "doa Access Token.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBoundIntegrityVerificationData": {
+        "type": "object",
+        "properties": {
+          "challenge": {
+            "type": "string",
+            "nullable": true
+          },
+          "androidIntegrityToken": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBoundRequest": {
+        "type": "object",
+        "properties": {
+          "signature": {
+            "type": "string",
+            "description": "Payload signature (Base64 encoded).\n\niOS: This is the assertion as generated by iOS DCAppAttestService.generateAssertion. Input to generateAssertion is SHA256 of Payload.\n\nAndroid: This is the signature as generated via Signature.getInstance(\"SHA256withECDSA\").",
+            "nullable": true
+          },
+          "deviceOs": {
+            "$ref": "#/components/schemas/UserDeviceOs"
+          },
+          "payload": {
+            "type": "string",
+            "description": "Original payload used for signing. See description for the actual type.\nKeeping the original payload here to avoid signing issues.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceBoundRequestPayload": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ChangePasswordRequest"
+          },
+          {
+            "$ref": "#/components/schemas/ChangePasswordLoggedInUserRequest"
+          },
+          {
+            "$ref": "#/components/schemas/ConfirmAccountEmailRequest"
+          },
+          {
+            "$ref": "#/components/schemas/ConfirmEmailRecoveryRequest"
+          },
+          {
+            "$ref": "#/components/schemas/DakPrimaryRotateRequest"
+          },
+          {
+            "$ref": "#/components/schemas/DakPrimaryPrepareRotationRequest"
+          },
+          {
+            "$ref": "#/components/schemas/DeviceBindingRefreshRequest"
+          },
+          {
+            "$ref": "#/components/schemas/DeviceBindingLinkHealthIdAccountRequest"
+          },
+          {
+            "$ref": "#/components/schemas/InitiateEmailVerificationRequest"
+          },
+          {
+            "$ref": "#/components/schemas/InitiateEmailRecoveryRequest"
+          },
+          {
+            "$ref": "#/components/schemas/IntrospectTokenRequest"
+          },
+          {
+            "$ref": "#/components/schemas/LoginEmailAccountRequest"
+          },
+          {
+            "$ref": "#/components/schemas/LoginUsernameAccountRequest"
+          },
+          {
+            "$ref": "#/components/schemas/LoginHealthIdAccountRequest"
+          },
+          {
+            "$ref": "#/components/schemas/LogoutUserRequest"
+          },
+          {
+            "$ref": "#/components/schemas/RefreshTokenRequest"
+          },
+          {
+            "$ref": "#/components/schemas/RevokeTokenRequest"
+          },
+          {
+            "$ref": "#/components/schemas/UserInfoRequest"
+          }
+        ],
+        "additionalProperties": false
+      },
+      "ErrorDto": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/BusinessErrorCodes"
+          },
+          "error_description": {
+            "type": "string",
+            "description": "Description of the error in english.",
+            "nullable": true
+          },
+          "error_data": {
+            "description": "Additional error data for some specific errors.\n    <div><b>RegistrationPasswordValidationFailed</b> example: \n        <pre>{\"error\":\"RegistrationPasswordValidationFailed\",\"error_description\":\"Password does not fulfill the requirements.\",\"error_data\":[\"FailedLength\",\"FailedDigit\"]}.</pre>\n        The following sub error codes are possible:\n        <ul><li>FailedBadList</li><li>FailedDigit</li><li>FailedLength</li><li>FailedLowercase</li><li>FailedUnique</li><li>FailedUppercase</li><li>FailedPunctuation</li><li>FailedRepeat</li><li>FailedPattern</li><li>FailedEntropy</li></ul></div>",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "General error format for all errors returned by the API."
+      },
+      "ExternalOidcProvider": {
+        "enum": [
+          "Mimoto",
+          "Google",
+          "Apple",
+          "Hin"
+        ],
+        "type": "string"
+      },
+      "GlobalLogoutUserRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "User account ID.",
+            "nullable": true
+          },
+          "accessToken": {
+            "type": "string",
+            "description": "Access token to be revoked.",
+            "nullable": true
+          },
+          "refreshToken": {
+            "type": "string",
+            "description": "Refresh token to be revoked.",
+            "nullable": true
+          },
+          "clearNotUsedDeviceBindings": {
+            "type": "boolean",
+            "description": "If set to true, clears all device bindings (aparent from the currently used one). This will only work if AccessToken is valid!"
+          },
+          "clearCurrentDeviceBinding": {
+            "type": "boolean",
+            "description": "If set to true, clears the currently used device binding. This will only work if AccessToken is valid!"
+          }
+        },
+        "additionalProperties": false
+      },
+      "InitiateEmailRecoveryRequest": {
+        "required": [
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "Email of the account.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InitiateEmailRecoveryResponse": {
+        "required": [
+          "recoveryFlow"
+        ],
+        "type": "object",
+        "properties": {
+          "recoveryFlow": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InitiateEmailVerificationRequest": {
+        "required": [
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "Email of the account.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InitiateEmailVerificationResponse": {
+        "required": [
+          "verificationFlow"
+        ],
+        "type": "object",
+        "properties": {
+          "verificationFlow": {
+            "type": "string",
+            "description": "Verification flow.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IntrospectTokenRequest": {
+        "required": [
+          "token"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "User account ID.",
+            "nullable": true
+          },
+          "token": {
+            "type": "string",
+            "description": "Access or refresh token for introspection.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IntrospectTokenResponse": {
+        "required": [
+          "active"
+        ],
+        "type": "object",
+        "properties": {
+          "active": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginAccountRequest": {
+        "required": [
+          "identifier"
+        ],
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "scope": {
+            "type": "string",
+            "description": "The following scopes are supported:\n- offline_access --> this is required to receive refresh token\n- permissions_app\n- licenses",
+            "nullable": true
+          },
+          "requestChallenge": {
+            "type": "string",
+            "description": "Challenge as received via challenge API.",
+            "nullable": true
+          },
+          "deviceData": {
+            "$ref": "#/components/schemas/UserDeviceData"
+          },
+          "deviceAttestationKey": {
+            "type": "string",
+            "description": "Device AttestationKey of the created account. DAK can be used instead of Password if enabled",
+            "nullable": true
+          },
+          "identifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "deviceBoundIntegrityVerificationData": {
+            "$ref": "#/components/schemas/DeviceBoundIntegrityVerificationData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginEmailAccountRequest": {
+        "required": [
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "scope": {
+            "type": "string",
+            "description": "The following scopes are supported:\n- offline_access --> this is required to receive refresh token\n- permissions_app\n- licenses",
+            "nullable": true
+          },
+          "requestChallenge": {
+            "type": "string",
+            "description": "Challenge as received via challenge API.",
+            "nullable": true
+          },
+          "deviceData": {
+            "$ref": "#/components/schemas/UserDeviceData"
+          },
+          "deviceAttestationKey": {
+            "type": "string",
+            "description": "Device AttestationKey of the created account. DAK can be used instead of Password if enabled",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "deviceBoundIntegrityVerificationData": {
+            "$ref": "#/components/schemas/DeviceBoundIntegrityVerificationData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginHealthIdAccountRequest": {
+        "required": [
+          "identityToken"
+        ],
+        "type": "object",
+        "properties": {
+          "identityToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "requestChallenge": {
+            "type": "string",
+            "description": "Challenge as received via challenge API.",
+            "nullable": true
+          },
+          "scope": {
+            "type": "string",
+            "description": "The following scopes are supported:\n- offline_access --> this is required to receive refresh token\n- permissions_app\n- licenses",
+            "nullable": true
+          },
+          "deviceData": {
+            "$ref": "#/components/schemas/UserDeviceData"
+          },
+          "deviceBoundIntegrityVerificationData": {
+            "$ref": "#/components/schemas/DeviceBoundIntegrityVerificationData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginIdAccountRequest": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "scope": {
+            "type": "string",
+            "description": "The following scopes are supported:\n- offline_access --> this is required to receive refresh token\n- permissions_app\n- licenses",
+            "nullable": true
+          },
+          "requestChallenge": {
+            "type": "string",
+            "description": "Challenge as received via challenge API.",
+            "nullable": true
+          },
+          "deviceData": {
+            "$ref": "#/components/schemas/UserDeviceData"
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "deviceBoundIntegrityVerificationData": {
+            "$ref": "#/components/schemas/DeviceBoundIntegrityVerificationData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginOidcAccountRequest": {
+        "required": [
+          "identityToken"
+        ],
+        "type": "object",
+        "properties": {
+          "identityToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "requestChallenge": {
+            "type": "string",
+            "description": "Challenge as received via challenge API.",
+            "nullable": true
+          },
+          "scope": {
+            "type": "string",
+            "description": "The following scopes are supported:\n- offline_access --> this is required to receive refresh token\n- permissions_app\n- licenses",
+            "nullable": true
+          },
+          "deviceData": {
+            "$ref": "#/components/schemas/UserDeviceData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginResponse": {
+        "required": [
+          "accessToken",
+          "expiresIn",
+          "postLoginActions",
+          "scope",
+          "tokenType"
+        ],
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "expiresIn": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "scope": {
+            "type": "string",
+            "nullable": true
+          },
+          "tokenType": {
+            "type": "string",
+            "nullable": true
+          },
+          "postLoginActions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PostLoginAction"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginUsernameAccountRequest": {
+        "required": [
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "scope": {
+            "type": "string",
+            "description": "The following scopes are supported:\n- offline_access --> this is required to receive refresh token\n- permissions_app\n- licenses",
+            "nullable": true
+          },
+          "requestChallenge": {
+            "type": "string",
+            "description": "Challenge as received via challenge API.",
+            "nullable": true
+          },
+          "deviceData": {
+            "$ref": "#/components/schemas/UserDeviceData"
+          },
+          "deviceAttestationKey": {
+            "type": "string",
+            "description": "Device AttestationKey of the created account. DAK can be used instead of Password if enabled",
+            "nullable": true
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "deviceBoundIntegrityVerificationData": {
+            "$ref": "#/components/schemas/DeviceBoundIntegrityVerificationData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LogoutUserRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "User account ID.",
+            "nullable": true
+          },
+          "accessToken": {
+            "type": "string",
+            "description": "Access token to be revoked.",
+            "nullable": true
+          },
+          "refreshToken": {
+            "type": "string",
+            "description": "Refresh token to be revoked.",
+            "nullable": true
+          },
+          "globalLogout": {
+            "type": "boolean",
+            "description": "If set to true, globally logs the user out. This will only work if AccessToken is valid!"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PostLoginAction": {
+        "type": "object",
+        "properties": {
+          "actionType": {
+            "$ref": "#/components/schemas/PostLoginActionType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PostLoginActionType": {
+        "enum": [
+          "PasswordChangeRequired",
+          "DeviceBindingExpired",
+          "DeviceBindingNearingExpiration",
+          "DeviceAttestationKeyMissing"
+        ],
+        "type": "string"
+      },
+      "RefreshTokenRequest": {
+        "required": [
+          "refreshToken"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "User account ID.",
+            "nullable": true
+          },
+          "refreshToken": {
+            "type": "string",
+            "description": "Refresh token.",
+            "nullable": true
+          },
+          "requestChallenge": {
+            "type": "string",
+            "description": "Challenge as received via challenge API.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RefreshTokenResponse": {
+        "required": [
+          "accessToken",
+          "expiresIn",
+          "postLoginActions",
+          "scope",
+          "tokenType"
+        ],
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "expiresIn": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "scope": {
+            "type": "string",
+            "nullable": true
+          },
+          "tokenType": {
+            "type": "string",
+            "nullable": true
+          },
+          "postLoginActions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PostLoginAction"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RevokeTokenRequest": {
+        "required": [
+          "token"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "User account ID.",
+            "nullable": true
+          },
+          "token": {
+            "type": "string",
+            "description": "Access or refresh token to be revoked.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SuccessResponse": {
+        "required": [
+          "success"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "Always true for now."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Success response. Property always set to true (preparation for the case where body might be extended in the future)."
+      },
+      "TokenResponse": {
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "tokenType": {
+            "type": "string",
+            "nullable": true
+          },
+          "expiresInSeconds": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "scope": {
+            "type": "string",
+            "nullable": true
+          },
+          "idToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "issued": {
+            "type": "string",
+            "format": "date-time",
+            "deprecated": true
+          },
+          "issuedUtc": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isStale": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserDeviceData": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "manufacturer": {
+            "type": "string",
+            "nullable": true
+          },
+          "model": {
+            "type": "string",
+            "nullable": true
+          },
+          "modelVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "osVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "os": {
+            "type": "string",
+            "nullable": true
+          },
+          "extra": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserDeviceOs": {
+        "enum": [
+          "Unknown",
+          "Android",
+          "Ios"
+        ],
+        "type": "string"
+      },
+      "UserInfoBiometricCredentialResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "deviceData": {
+            "$ref": "#/components/schemas/UserDeviceData"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserInfoLinkedAuthenticationResponse": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "$ref": "#/components/schemas/ExternalOidcProvider"
+          },
+          "sub": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserInfoPasskeyCredentialResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "credentialId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserInfoRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Account ID.",
+            "nullable": true
+          },
+          "accessToken": {
+            "type": "string",
+            "description": "doa Access Token.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserInfoResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "linkedAuthenticationMethods": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExternalOidcProvider"
+            },
+            "nullable": true
+          },
+          "linkedAuthentications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserInfoLinkedAuthenticationResponse"
+            },
+            "nullable": true
+          },
+          "registrationStatus": {
+            "$ref": "#/components/schemas/UserRegistrationStatus"
+          },
+          "passkeyCredentials": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserInfoPasskeyCredentialResponse"
+            },
+            "nullable": true
+          },
+          "biometricCredentials": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserInfoBiometricCredentialResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserRegistrationStatus": {
+        "enum": [
+          "Pending",
+          "Invited",
+          "Finished"
+        ],
+        "type": "string"
+      }
+    }
+  }
+}

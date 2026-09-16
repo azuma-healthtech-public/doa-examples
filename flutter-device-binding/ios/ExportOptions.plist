@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- App Store Connect distribution, exported locally; the workflow uploads the
+	     .ipa in a separate step so the build is also kept as a run artifact.
+	     Same settings as examples/ios-device-binding/ExportOptions.plist. -->
+	<key>method</key>
+	<string>app-store-connect</string>
+	<key>destination</key>
+	<string>export</string>
+	<key>teamID</key>
+	<string>CRWTAA276J</string>
+	<key>signingStyle</key>
+	<string>automatic</string>
+	<!-- dSYMs go with the build so TestFlight crash reports are symbolicated. -->
+	<key>uploadSymbols</key>
+	<true/>
+	<!-- Bitcode has been removed from the toolchain; leaving it on fails the export. -->
+	<key>uploadBitcode</key>
+	<false/>
+	<!-- The workflow sets the build number; Xcode must not replace it. -->
+	<key>manageAppVersionAndBuildNumber</key>
+	<false/>
+</dict>
+</plist>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- White rather than ?android:colorBackground: the app forces the light theme
+     (AppTheme.light + ThemeMode.light), so the splash must not follow the
+     system into dark. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@android:color/white" />
+</layer-list>

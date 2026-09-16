@@ -1,0 +1,11 @@
+# Config for the OpenAPI Generator run that produces `generated/doa_device_binding_api`.
+# See README.md -> "Regenerating the API client". Nothing under `generated/` is hand-edited.
+generatorName: dart-dio
+inputSpec: swagger.json
+outputDir: generated/doa_device_binding_api
+additionalProperties:
+  pubName: doa_device_binding_api
+  pubVersion: 1.0.0
+  pubDescription: "Generated dio client for the azuma doa Device Binding API v1."
+  serializationLibrary: json_serializable
+  nullableFields: true
