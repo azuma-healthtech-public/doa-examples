@@ -79,7 +79,7 @@ the session and profile are dropped and the entry screen offers only biometrics 
 biometrics"), "Repair biometric setup" and "Sign out". Restarting the process always requires a login.
 Sign-out calls `auth/logout` and clears local state even if that call fails.
 
-Known gap (O.Auth_15 in the conformance checklist): the backend is told only on explicit sign-out; sessions the
+Known gap (O.Auth_15): the backend is told only on explicit sign-out; sessions the
 app ends itself (expiry, after enabling biometrics, after a password change) are dropped locally only.
 
 ## Device integrity
