@@ -9,21 +9,37 @@ import 'package:flutter/services.dart';
 class HealthId {
   static const authorization = String.fromEnvironment(
     'HEALTH_ID_AUTHORIZATION_URL',
+    defaultValue: 'https://mimoto-ref.pie.azuma-health.tech/connect/auth',
   );
-  static const tokenEndpoint = String.fromEnvironment('HEALTH_ID_TOKEN_URL');
+  static const tokenEndpoint = String.fromEnvironment(
+    'HEALTH_ID_TOKEN_URL',
+    defaultValue: 'https://mimoto-ref.pie.azuma-health.tech/connect/token',
+  );
   static const exchangeEndpoint = String.fromEnvironment(
     'HEALTH_ID_EXCHANGE_URL',
+    defaultValue:
+        'https://mimoto-ref.pie.azuma-health.tech/oidcf/exchange/mobile',
   );
-  static const clientId = String.fromEnvironment('HEALTH_ID_CLIENT_ID');
+  static const clientId = String.fromEnvironment(
+    'HEALTH_ID_CLIENT_ID',
+    defaultValue: 'd0fe4fb5-ab2a-4ff4-bba4-91853071c3ce',
+  );
 
   /// The broker's directory of identity providers, and the relying party whose
   /// list to ask for. The user picks one; there is no provider pinned into the
   /// build, because which insurer a person belongs to is not a build decision.
-  static const idpListUrl = String.fromEnvironment('HEALTH_ID_IDP_LIST_URL');
+  static const idpListUrl = String.fromEnvironment(
+    'HEALTH_ID_IDP_LIST_URL',
+    defaultValue: 'https://mimoto-ref.pie.azuma-health.tech/api/v1/idps',
+  );
   static const relyingPartyId = String.fromEnvironment(
     'HEALTH_ID_RELYING_PARTY_ID',
+    defaultValue: 'c36eb4fa-0f55-46f2-8e69-e52ff6013022',
   );
-  static const redirect = String.fromEnvironment('HEALTH_ID_REDIRECT_URI');
+  static const redirect = String.fromEnvironment(
+    'HEALTH_ID_REDIRECT_URI',
+    defaultValue: 'https://mimoto-example-app.azuma-health.tech/rn-ce/code/ce',
+  );
   static const launchScheme = String.fromEnvironment(
     'HEALTH_ID_AUTHENTICATOR_SCHEME',
     defaultValue: 'https',
@@ -89,9 +105,7 @@ class HealthId {
         ),
       );
     }
-    list.sort(
-      (a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()),
-    );
+    list.sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
     return list;
   }
 

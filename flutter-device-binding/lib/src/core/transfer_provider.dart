@@ -32,7 +32,10 @@ class TransferProvider {
   );
   static const tokenEndpoint = String.fromEnvironment('TRANSFER_TOKEN_URL');
   static const clientId = String.fromEnvironment('TRANSFER_CLIENT_ID');
-  static const redirect = String.fromEnvironment('TRANSFER_REDIRECT_URI');
+  static const redirect = String.fromEnvironment(
+    'TRANSFER_REDIRECT_URI',
+    defaultValue: 'https://doa-example-app.azuma-health.tech/callback/transfer',
+  );
 
   /// `openid` is required; `email` is what lets the transferred account keep a
   /// DOA-native way in through the forgot-password flow. Nothing else is asked
@@ -204,9 +207,8 @@ class TransferProvider {
     final parts = token.split('.');
     if (parts.length < 2) throw StateError('Malformed identity token');
     return jsonDecode(
-          utf8.decode(base64Url.decode(base64Url.normalize(parts[1]))),
-        )
-        as Map<String, dynamic>;
+      utf8.decode(base64Url.decode(base64Url.normalize(parts[1]))),
+    ) as Map<String, dynamic>;
   }
 
   Future<void> cancel() async {

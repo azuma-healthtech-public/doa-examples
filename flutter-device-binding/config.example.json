@@ -1,5 +1,5 @@
 {
-  "_comment": "Copy to config.json (git-ignored) and run: flutter run --dart-define-from-file=config.json. Every key is a compile-time constant; change one and rebuild. The code has no defaults: the values here are azuma's demo tenant, and a build without DOA_BASE_URL and DOA_APPLICATION_ID opens on a 'not configured' screen. The Health-ID flow stays disabled until every Health-ID key is filled. The Health-ID values point at the Mimoto reference environment; the client id is public, the relying-party id and redirect URI come from that client registration.",
+  "_comment": "Copy to config.json (git-ignored) and run: flutter run --dart-define-from-file=config.json. Every key is a compile-time constant; change one and rebuild. The values here are the built-in defaults, azuma's demo tenant: a bare flutter run uses exactly them, and a test keeps this file and the code equal. Blank every Health-ID key to disable that flow. The Health-ID values point at the Mimoto reference environment; the client id is public, the relying-party id and redirect URI come from that client registration.",
 
   "DOA_BASE_URL": "https://pie.azuma-health.tech/api/organization",
   "DOA_APPLICATION_ID": "9647d187-0494-4874-9c9c-e403afb1b819",

@@ -1,4 +1,4 @@
-> Exported from azuma's monorepo at `566f9b94`. The specification pages the text links to
+> Exported from azuma's monorepo at `965e34f2`. The specification pages the text links to
 > are under `docs/spec/`.
 
 # azuma DOA - Flutter device-binding example
@@ -28,15 +28,16 @@ entry points into the same account; a second device is added through passkey or 
 
 ```bash
 flutter pub get
-cp config.example.json config.json        # required: put your tenant in; the example holds azuma's demo values
-flutter run --dart-define-from-file=config.json
+flutter run                               # azuma's demo tenant is built in
+# Your own tenant: cp config.example.json config.json, edit it, then
+# flutter run --dart-define-from-file=config.json
 ```
 
 Then on a **physical phone** with a fingerprint or strong face unlock enrolled: *Create account* ->
 *Register with email*, verify the code from the mail, *Sign in with email*, *Enable biometrics*. You are
 in. After ten minutes the app locks and only biometrics reopen it.
 
-Three things stop this working out of the box, none of them code:
+Two things stop this working out of the box, none of them code:
 
 - **An emulator cannot register.** Registration sends a hardware key attestation; DOA rejects the
   software attestation an emulator produces. Emulators are fine for `flutter test` and for looking at
@@ -44,8 +45,6 @@ Three things stop this working out of the box, none of them code:
 - **Self-registration may be disabled on the tenant.** A tenant that answers `RegistrationNotPossible`
   needs email registration enabled, or an existing account plus a passkey or Health-ID to add this
   device with.
-- **Health-ID is off until configured.** Its button explains that in the UI. See
-  [Configuration](#configuration).
 
 `config.json` is git-ignored. Every value is a compile-time constant (`String.fromEnvironment`), so a
 change means a rebuild, and a build cannot be repointed afterwards.
@@ -96,15 +95,15 @@ and the platform's, which is exempt.
 | Key | Default | Required for | Notes |
 |---|---|---|---|
 | `PROFILE` | - (launcher) | reviewed builds | `customer` pins the flow: no launcher, opens on the welcome screen. Unset shows screen 0 |
-| `DOA_BASE_URL` | required | everything | Must be `https`. An `http://10.0.2.2:...` local stack works from an emulator but the emulator cannot register |
-| `DOA_APPLICATION_ID` | required | everything | The tenant's application registration |
-| `PLAY_INTEGRITY_CLOUD_PROJECT_NUMBER` | required | every registration and login | The Cloud project linked to this app in the Play Console. Use your own |
-| `HEALTH_ID_AUTHORIZATION_URL` | - | Health-ID | HTTPS broker authorization endpoint supporting `response_format=json` |
-| `HEALTH_ID_TOKEN_URL` | - | Health-ID | HTTPS authorization-code exchange endpoint |
-| `HEALTH_ID_EXCHANGE_URL` | - | Health-ID | HTTPS mobile broker callback exchange endpoint |
+| `DOA_BASE_URL` | `https://pie.azuma-health.tech/api/organization` (azuma's demo) | everything | Must be `https`. An `http://10.0.2.2:...` local stack works from an emulator but the emulator cannot register |
+| `DOA_APPLICATION_ID` | `9647d187-…` (azuma's demo) | everything | The tenant's application registration |
+| `PLAY_INTEGRITY_CLOUD_PROJECT_NUMBER` | `350905203458` (azuma's) | every registration and login | The Cloud project linked to this app in the Play Console. Use your own |
+| `HEALTH_ID_AUTHORIZATION_URL` | `…/connect/auth` | Health-ID | HTTPS broker authorization endpoint supporting `response_format=json` |
+| `HEALTH_ID_TOKEN_URL` | `…/connect/token` | Health-ID | HTTPS authorization-code exchange endpoint |
+| `HEALTH_ID_EXCHANGE_URL` | `…/oidcf/exchange/mobile` | Health-ID | HTTPS mobile broker callback exchange endpoint |
 | `HEALTH_ID_CLIENT_ID` | `d0fe4fb5-…` | Health-ID | Registered public mobile client id; no secret |
 | `HEALTH_ID_IDP_LIST_URL` | `…/api/v1/idps` | Health-ID | The broker's provider directory, read when the picker opens |
-| `HEALTH_ID_RELYING_PARTY_ID` | - | Health-ID | Whose provider list to ask for; comes with the client registration |
+| `HEALTH_ID_RELYING_PARTY_ID` | `c36eb4fa-…` | Health-ID | Whose provider list to ask for; comes with the client registration |
 | `HEALTH_ID_REDIRECT_URI` | `…/rn-ce/code/ce` | Health-ID | Registered HTTPS app link; must match the two Gradle properties below exactly |
 | `HEALTH_ID_AUTHENTICATOR_SCHEME` | `https` | Health-ID | Scheme the broker's launch URL uses |
 | `HEALTH_ID_EXCHANGE_VIA_REDIRECT` | `true` | Health-ID | `true` exchanges the full callback URL; `false` sends code + state |
@@ -116,9 +115,10 @@ and the platform's, which is exempt.
 | `TRANSFER_SCOPE` | `openid email` | account transfer | `email` is what lets a transferred account keep a DOA-native way in |
 | `TRANSFER_DOA_PROVIDER` | `google` | account transfer | Which DOA route validates the token: `google` or `apple`, the only two DOA has |
 
-The Health-ID flow is disabled until every Health-ID key is HTTPS or non-empty (`HealthId.configured`).
-The committed defaults point at the Mimoto reference environment; the user picks the insurer from the
-broker's directory when the flow starts, so no provider is pinned into the build. That list is public
+The built-in defaults are `config.example.json`, azuma's demo tenant and the Mimoto reference
+environment for Health-ID; a test keeps the two in step. Blank any Health-ID key and that flow disables
+itself (`HealthId.configured`). The user picks the insurer from the broker's directory when the flow
+starts, so no provider is pinned into the build. That list is public
 and read-only: opening the picker sends no challenge, no token and nothing about the user.
 
 The default Health-ID callback belongs to azuma's React Native example: providers federated through
