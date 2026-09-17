@@ -1,4 +1,4 @@
-> Exported from azuma's monorepo at `847b5c7e`. The specification pages the text links to
+> Exported from azuma's monorepo at `566f9b94`. The specification pages the text links to
 > are under `docs/spec/`.
 
 # azuma DOA - Flutter device-binding example
