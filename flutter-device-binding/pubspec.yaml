@@ -2,7 +2,7 @@ name: flutter_device_binding
 description: "Azuma Flutter device binding example - a 1:1 port of examples/android-device-binding."
 # Reference sample, never published.
 publish_to: 'none'
-version: 1.1.0+1
+version: 1.1.1+1
 
 environment:
   sdk: ^3.13.1
@@ -58,7 +58,9 @@ flutter:
 # guaranteed visible once a launcher applies its mask.
 flutter_launcher_icons:
   android: "ic_launcher"
-  ios: false
+  ios: true
+  # App Store Connect rejects an icon with an alpha channel.
+  remove_alpha_ios: true
   image_path: "assets/icon/icon.png"
   adaptive_icon_background: "#FFFFFF"
   adaptive_icon_foreground: "assets/icon/icon_foreground.png"
